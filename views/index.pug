@@ -2,4 +2,19 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  if (user)
+    a(href="/new-post") Create new post
+  if (!user)
+    p <a href='/sign-in'>Sign In</a> or <a href='/sign-up'>Sign Up</a> to add a post.
+
+  for post in all_posts
+    div.post-container
+      h3 #{post.title}
+      p #{post.content} 
+      if (user)
+        p By #{post.author.full_name} on #{post.date_formatted}
+      if (!user)
+        p Only members can see who wrote a post
+  
+
+   

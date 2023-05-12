@@ -84,7 +84,7 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/post', postRouter);
+app.use('/new-post', postRouter);
 app.use('/sign-up', signUpRouter);
 app.use('/sign-in', signInRouter);
 

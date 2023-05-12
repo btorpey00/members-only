@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+    h1 Create Post
+
+    form(action="" method='POST')
+        label(for="post_title") Title: 
+        input#post_title(type="text" name='post_title' required='true' placeholder='Title' value=(new_post===undefined ? '' : new_post.title))
+
+        label(for='post_content') Message: 
+        textarea#post_content(name="post_content", cols="30", rows="5" value=(new_post===undefined ? '' : new_post.content))
+
+        button(type='submit') Submit Post 
+
+    if errors 
+        ul 
+            for error in errors 
+                li!= error.msg

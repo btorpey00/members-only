@@ -1,18 +1,10 @@
 var express = require('express');
 var router = express.Router();
+const index_controller = require('../controllers/indexController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Members Only', user: res.locals.currentUser });
-});
+router.get('/', index_controller.index);
 
-router.get('/sign-out', (req, res, next) => {
-  req.logout(function(err) {
-    if (err) {
-      return next(err);
-    }
-    res.redirect('/');
-  });
-});
+router.get('/sign-out', index_controller.sign_out);
 
 module.exports = router;
