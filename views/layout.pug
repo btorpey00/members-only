@@ -17,7 +17,7 @@ html(lang="en")
           a(href='/sign-in') Sign In  
           a(href='/sign-up') Sign Up
         if (user)
-          p Welcome #{user.name}
+          p Welcome #{user.full_name}
           a(href='/sign-out') Sign Out
 
     block content

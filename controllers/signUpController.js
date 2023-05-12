@@ -15,7 +15,6 @@ exports.sign_up_post = [
         .escape()
         .custom(async value => {
             const existingUser = await User.findOne({ username: value });
-            console.log(value);
             if (existingUser) {
                 console.log('USER EXISTS')
                 throw new Error('This username is already taken');
@@ -36,7 +35,7 @@ exports.sign_up_post = [
         .escape(),
     body('confirm_password', 'Password must match')
         .custom((value, { req }) => {
-            console.log('Password Mismatch')
+            console.log(value === req.body.password)
             return value === req.body.password;
         })
         .escape(),
@@ -51,7 +50,7 @@ exports.sign_up_post = [
             } else {
                 const newUser = new User ({
                     username: req.body.username,
-                    password: req.body.password,
+                    password: hashedPassword,
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
                 });
