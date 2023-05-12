@@ -6,5 +6,18 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel='stylesheet', href='/stylesheets/style.css')
     title Members Only
-  body 
+  body
+    header 
+      h1 Members Only 
+      
+      
+      nav 
+        a(href='/') Home
+        if (!user)
+          a(href='/sign-in') Sign In  
+          a(href='/sign-up') Sign Up
+        if (user)
+          p Welcome #{user.name}
+          a(href='/sign-out') Sign Out
+
     block content

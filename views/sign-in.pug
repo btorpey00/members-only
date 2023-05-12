@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    h1 Sign In 
+
+    form.sign_in_form(action="" method="POST")
+        label.signin_label(for='username') Username: 
+        input#username.signin_input(type="text" name='username' placeholder='Username' required='true')
+
+        label.signin_label(for='password') Password: 
+        input#password.signin_input(type='password' name='password' required='true')
+
+        button.sign_in_button(type='submit') Sign In
+
+    p Or <a href='/sign-up'> Sign Up </a> 

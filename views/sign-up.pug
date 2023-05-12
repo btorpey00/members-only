@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+    h1 Sign Up 
+
+    form.sign_up_form(action="" method="POST")
+        label.signup_label(for='username') Username: 
+        input#username.signup-input(type="text" name='username' placeholder='Username' required='true' value=(newUser===undefined ? '' : newUser.username ))
+
+        label.signup_label(for='first_name') First Name: 
+        input#first_name.signup_input(type='text' name='first_name' placeholder='First Name' required='true' value=(newUser===undefined ? '' : newUser.first_name ))
+
+        label.signup_label(for='last_name') Last Name: 
+        input#last_name.signup_input(type='text' name='last_name' placeholder='Last Name' required='true' value=(newUser===undefined ? '' : newUser.last_name ))
+
+        label.signup_label(for='password') Password: 
+        input#password.signup_input(type='password' name='password' required='true')
+
+        label.signup_label(for='confirm_password') Confirm Password: 
+        input#confirm_password.signup_input(type='password' name='confirm_password' required='true')
+
+        button.sign_up_button(type='submit') Sign Up
+
+    if errors 
+        ul 
+            for error in errors 
+                li!= error.msg
